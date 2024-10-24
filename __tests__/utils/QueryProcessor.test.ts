@@ -34,4 +34,13 @@ describe("QueryProcessor", () => {
             "ntalib"
           ));
     });
+
+    test('should return 67', () => {
+        const query = "What is 70 plus 67??";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "69"
+          ));
+    });
+
 });
