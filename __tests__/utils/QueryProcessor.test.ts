@@ -68,5 +68,13 @@ describe("QueryProcessor", () => {
             "-64"
           ));
     });
-    
+
+    test('should return 5, 97, 59', () => {
+        const query = "Which of the following numbers are primes: 99, 5, 74, 97, 59?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "5, 97, 59"
+          ));
+    });
+
 });
