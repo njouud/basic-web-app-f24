@@ -53,4 +53,13 @@ describe("QueryProcessor", () => {
           ));
     });
 
+    test('should return 67', () => {
+        const query = "What is 53 multiplied by 83?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "4399"
+          ));
+    });
+
+
 });
