@@ -68,6 +68,5 @@ describe("QueryProcessor", () => {
             "-64"
           ));
     });
-
-
+    
 });
