@@ -30,6 +30,28 @@ export default function QueryProcessor(query: string): string {
       return ( ans.toString() );
     }
   }
+
+  if (query.toLowerCase().includes("largest")) {
+
+     let numbers = query.match(/\d+/g); // Extracts all numbers from the string
+ 
+     if (numbers) {
+       let num1 = parseInt(numbers[0], 10);
+       let num2 = parseInt(numbers[1], 10);
+       let num3 = parseInt(numbers[2], 10);
+       let largest = 0;
+
+       if (num1 >= num2 && num1 >= num3) {
+          largest = num1;
+        } else if (num2 >= num1 && num2 >= num3) {
+          largest = num2;
+        } else {
+          largest = num3;
+      }
+    
+       return ( largest.toString() );
+     }
+   }
   
   return "";
 }

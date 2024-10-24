@@ -43,4 +43,14 @@ describe("QueryProcessor", () => {
           ));
     });
 
+    // test ("Which of the following numbers is the largest: 53, 18, 78?", () )
+
+    test('should return 78', () => {
+        const query = "What is 70 plus 67??";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "137"
+          ));
+    });
+
 });
