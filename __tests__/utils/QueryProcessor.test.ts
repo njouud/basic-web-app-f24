@@ -39,7 +39,7 @@ describe("QueryProcessor", () => {
         const query = "What is 70 plus 67??";
         const response: string = QueryProcessor(query);
         expect(response).toBe((
-            "69"
+            69
           ));
     });
 
