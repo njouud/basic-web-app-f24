@@ -132,32 +132,43 @@ export default function QueryProcessor(query: string): string {
     if (numbers) {
       let results = [];
   
-      // Function to check if a number is prime
-      function isPrime(num) {
-        if (num <= 1) return false; // 0 and 1 are not prime numbers
-        if (num <= 3) return true; // 2 and 3 are prime numbers
-  
-        // Check for factors from 2 to the square root of num
-        for (let i = 2; i * i <= num; i++) {
-          if (num % i === 0) return false; // Found a factor, not prime
-        }
-        return true; // No factors found, num is prime
-      }
-  
       // Loop through each extracted number
       for (let numString of numbers) {
         let num = parseInt(numString, 10);
   
-        // Check if the number is prime
-        if (isPrime(num)) {
+        // Check if the number is prime directly
+        if (num <= 1) {
+          // 0 and 1 are not prime numbers
+          continue; // Skip this iteration
+        }
+        if (num <= 3) {
+          // 2 and 3 are prime numbers
+          results.push(num);
+          continue; // Skip to the next number
+        }
+  
+        // Check for factors from 2 to the square root of num
+        let isPrime = true; // Assume the number is prime
+        for (let i = 2; i * i <= num; i++) {
+          if (num % i === 0) {
+            isPrime = false; // Found a factor, not prime
+            break; // No need to check further
+          }
+        }
+        
+        // If no factors were found, the number is prime
+        if (isPrime) {
           results.push(num);
         }
       }
   
       // Return the results or a message if no prime numbers are found
       return results.length > 0 ? results.join(", ") : "No prime numbers found.";
+    } else {
+      return "No numbers were found in the query.";
     }
   }
+  
   
 
   return "";
