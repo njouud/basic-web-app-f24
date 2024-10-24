@@ -53,7 +53,49 @@ export default function QueryProcessor(query: string): string {
      }
    }
 
-   // Which of the following numbers is both a square and a cube: 
+   if (query.toLowerCase().includes("largest")) {
+
+    let numbers = query.match(/\d+/g); // Extracts all numbers from the string
+
+    if (numbers) {
+      let num1 = parseInt(numbers[0], 10);
+      let num2 = parseInt(numbers[1], 10);
+      let num3 = parseInt(numbers[2], 10);
+      let largest = 0;
+
+      if (num1 >= num2 && num1 >= num3) {
+         largest = num1;
+       } else if (num2 >= num1 && num2 >= num3) {
+         largest = num2;
+       } else {
+         largest = num3;
+     }
+   
+      return ( largest.toString() );
+    }
+  }
+  if (query.toLowerCase().includes("square and a cube")) {
+    let numbers = query.match(/\d+/g); // Extracts all numbers from the string
   
+    if (numbers) {
+      let results = [];
+  
+      // Loop through each extracted number
+      for (let numString of numbers) {
+        let num = parseInt(numString, 10);
+        let sqrt = Math.sqrt(num);
+        let cbrt = Math.cbrt(num);
+  
+        // Check if the number is both a perfect square and a perfect cube
+        if (Number.isInteger(sqrt) && Number.isInteger(cbrt)) {
+          results.push(num);
+        }
+      }
+  
+      // Return the results or a message if no numbers are found
+      return results.length > 0 ? results.join(", ") : "No numbers are both a square and a cube.";
+    }
+  }
+
   return "";
 }
