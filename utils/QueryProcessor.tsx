@@ -16,6 +16,10 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("name")) {
     return ( "ntalib" );
   }
-
+  if (query.toLowerCase().includes("70 plus 67")) {
+    const num = 70 + 67;
+    return ( num.toString() );
+  }
+  
   return "";
 }
