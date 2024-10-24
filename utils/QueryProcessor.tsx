@@ -52,6 +52,8 @@ export default function QueryProcessor(query: string): string {
        return ( largest.toString() );
      }
    }
+
+   // Which of the following numbers is both a square and a cube: 
   
   return "";
 }

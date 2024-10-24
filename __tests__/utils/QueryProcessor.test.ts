@@ -36,20 +36,20 @@ describe("QueryProcessor", () => {
     });
 
     test('should return 67', () => {
-        const query = "What is 70 plus 67??";
+        const query = "What is 70 plus 67?";
         const response: string = QueryProcessor(query);
         expect(response).toBe((
             "137"
           ));
     });
 
-    // test ("Which of the following numbers is the largest: 53, 18, 78?", () )
+    //  Which of the following numbers is both a square and a cube: 
 
-    test('should return 78', () => {
-        const query = "What is 70 plus 67??";
+    test('should return 729', () => {
+        const query = "Which of the following numbers is both a square and a cube: 343, 729, 4083, 1521, 2479, 4710, 1381?";
         const response: string = QueryProcessor(query);
         expect(response).toBe((
-            "137"
+            "729"
           ));
     });
 
