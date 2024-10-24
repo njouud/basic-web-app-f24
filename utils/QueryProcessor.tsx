@@ -12,5 +12,10 @@ export default function QueryProcessor(query: string): string {
     //TODO update the corresponding test case in __tests__
     return ( "ntalib" );
   }
+
+  if (query.toLowerCase().includes("name")) {
+    return ( "najoud" );
+  }
+
   return "";
 }
