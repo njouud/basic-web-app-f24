@@ -16,25 +16,28 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("name")) {
     return ( "ntalib" );
   }
+
   if (query.toLowerCase().includes("plus")) {
-   // const num = 70 + 67;
-    // return ( num.toString() );
     let numbers = query.match(/\d+/g); // Extracts all numbers from the string
-
+  
     if (numbers) {
-      let num1 = parseInt(numbers[0], 10);
-      let num2 = parseInt(numbers[1], 10);
-      console.log(num1, num2);
-
-      let ans = num1 + num2;
-      return ( ans.toString() );
+      let sum = 0;
+  
+      // Loop through each extracted number and calculate the sum
+      for (let numString of numbers) {
+        let num = parseInt(numString, 10);
+        sum += num; // Add each number to the sum
+      }
+  
+      return sum.toString(); // Return the total sum as a string
     }
   }
+  
 
   if (query.toLowerCase().includes("largest")) {
 
      let numbers = query.match(/\d+/g); // Extracts all numbers from the string
- 
+
      if (numbers) {
        let num1 = parseInt(numbers[0], 10);
        let num2 = parseInt(numbers[1], 10);
