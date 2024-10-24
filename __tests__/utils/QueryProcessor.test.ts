@@ -61,5 +61,13 @@ describe("QueryProcessor", () => {
           ));
     });
 
+    test('should return 67', () => {
+        const query = "What is 13 minus 77?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "-64"
+          ));
+    });
+
 
 });
